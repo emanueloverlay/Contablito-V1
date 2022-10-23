@@ -45,13 +45,11 @@ switch (optTransact) {
     <td>${Math.round(iva)}</td>
     <td>${Math.round(total)}</td>
     </tr>
-    `
+    `;
+
+    totalPrint.innerHTML = `<p>Total ventas: $ ${totalVentas}           Total compras: $ ${totalCompras}</p>`;
+
     description.value = "";
     subTotal.value = "";
     
-
-    totalPrint.innerHTML = 
-    `
-    <p>Total ventas: $ ${totalVentas}           Total compras: $ ${totalCompras}</p>
-    `
     });
