@@ -31,7 +31,6 @@ switch (optIva) {
 switch (optTransact) {
     case 'Compra':
        totalCompras += parseInt(subTotal.value);
-       console.log(totalCompras)
       break;
       case 'Venta':
        totalVentas += parseInt(subTotal.value);
@@ -53,6 +52,6 @@ switch (optTransact) {
 
     totalPrint.innerHTML = 
     `
-    <p> Total ventas: $ ${totalVentas}           Total compras: $ ${totalCompras}</p>
+    <p>Total ventas: $ ${totalVentas}           Total compras: $ ${totalCompras}</p>
     `
     });
