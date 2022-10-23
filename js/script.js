@@ -1,9 +1,12 @@
 const tablePrint = document.getElementById("tablePrint");
+const totalPrint = document.getElementById("totalPrint");
 const description = document.getElementById("description");
 const subTotal = document.getElementById("subTotal");
 const submitBtn = document.getElementById("submitBtn");
 let  total;
 let iva;
+let totalCompras = 0;
+let totalVentas = 0;
 
 submitBtn.addEventListener("click", (evt) => {
 
@@ -18,12 +21,22 @@ switch (optIva) {
     case '10':
         total = (subTotal.value * 1.10);
         iva = total - subTotal.value;
-        break;
+    break;
     case '0':
         total = subTotal.value;
         iva = 0;
-        break;
-}
+    break;
+};
+
+switch (optTransact) {
+    case 'Compra':
+       totalCompras += parseInt(subTotal.value);
+       console.log(totalCompras)
+      break;
+      case 'Venta':
+       totalVentas += parseInt(subTotal.value);
+      break;
+};
 
     tablePrint.innerHTML += `
     <tr>
@@ -33,5 +46,13 @@ switch (optIva) {
     <td>${Math.round(iva)}</td>
     <td>${Math.round(total)}</td>
     </tr>
+    `
+    description.value = "";
+    subTotal.value = "";
+    
+
+    totalPrint.innerHTML = 
+    `
+    <p> Total ventas: $ ${totalVentas}           Total compras: $ ${totalCompras}</p>
     `
     });
